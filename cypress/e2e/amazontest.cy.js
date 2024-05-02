@@ -3,24 +3,25 @@ describe('Amazon Test ', () => {
 
     it('passes', () => {
         
-        cy.visit('https://www.amazon.co.uk/')
+        cy.visit('https://www.amazon.co.uk/') 
 
 
        
     
-        cy.get('#sp-cc-accept').should('be.visible')
+        cy.get('#sp-cc-accept').should('be.visible') 
         cy.get('#sp-cc-accept').click()
         cy.get('#nav-link-accountList').click()
         
         cy.get('#ap_email').type("Josh.erhah@gmail.com")
         .should('have.value', 'Josh.erhah@gmail.com')
 
-        
         cy.get('#continue').click()
         cy.get('#ap_password').type("Joshua79")
         cy.get('#signInSubmit').click()
         cy.get('#nav-link-accountList-nav-line-1').should('contain', 'Hello, joshua') //assertion to confirm the login
 
+
+        //Search For a product
         cy.get('#twotabsearchtextbox').type('Wireless Headphones')
         cy.get('#nav-search-submit-button').click()
 
